@@ -3,6 +3,8 @@ const express = require("express");
 const axios = require("axios");
 const mongojs = require("mongojs");
 var cheerio = require("cheerio");
+var path = require("path");
+
 const app = express();
 
 //database config
@@ -24,30 +26,42 @@ module.exports = function(app) {
     //scrape articles
     app.get("/scrape", function(req, res){
         
-    axios.get("https://www.cartoonbrew.com/").then(function(response) {
-        //capturing html into cheerio and saving as variable
-        var $ = cheerio.load(response.data);
+        axios.get("https://www.nytimes.com/topic/subject/rock-climbing").then(function(response) {
+            //capturing html into cheerio and saving as variable
+            var $ = cheerio.load(response.data);//change
 
-        //an empty array to save data that we'll scrape
-        var results = [];
+            //an empty array to save data that we'll scrape
+            var results = [];
 
-        $("article").each(function(i, element){
-            var title = $(element).find(".entry-summary").children().text();
-            var link = $(element).find("a").attr("href");
+                $("article").each(function(i, element){
 
-            results.push({
-                title: title,
-                link: link
-            });
-    });
-    console.log(results);
-});
+                    var title = $(element).find("h2").text();
+                    title = title.split(" ").join(" ").split("\n").join(" ").trim();
+
+                    var link = $(element).find("a").attr("href");
+                    var image = $(element).find("img").attr("src");
+                    var summary = $(element).find(".summary").text();
+                    //r&d how to refine search to just class summary
+
+                    results.push({
+                        title: title,
+                        link: link,
+                        image: image,
+                        summary: summary
+                    });
+                });
+               console.log(results);
+            })
 
     });
 
     //routing to saved articles page
-    app.get("/savedArticles", function(req, res){
-        res.render("articles", {res, style: "article", title: "Saved Articles"});
+    app.get("/articles", function(req, res){
+        console.log(res);
+        // res.render("articles", {res, style: "article", title: "Saved Articles"})
+        // .then(function(articles){
+        //     res.json(articles);
+        // })
     });
 
     //save article

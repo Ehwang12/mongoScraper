@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <i class="nav-link fas fa-home" href="#">Home <span class="sr-only">(current)</span></i>
+        <i class="nav-link fas fa-home" href="/">Home <span class="sr-only">(current)</span></i>
       </li>
       <li class="nav-item">
-        <i class="nav-link far fa-newspaper" href="#articles">Saved Articles</i>
+        <i class="nav-link far fa-newspaper" href="/articles">Saved Articles</i>
       </li>
     </ul>
     <button type="button" class="btn btn-success mr-2 my-lg-1 my-sm-3" id="scrape-btn">Collect New Articles</button>
@@ -28,10 +28,11 @@
 
 {{!-- articles --}}
 <div class="container container-fluid my-1">
-  <div class="card shadow-sm">
-  <h5 class="card-header">PlaceHolderTitle <button type="button" class="btn btn-success float-right" id="clearArticle">Clear Article</button><button type="button" class="btn btn-primary float-right mr-2" id="saveArticle">Save Article</button></h5>
+  <div class="card shadow-sm" id="cardHeader">
+    {{!-- article title --}}
   <div class="card-body">
-    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ea illum deserunt doloremque corporis vero molestias sint dignissimos voluptatum accusamus!</p>
+    {{!-- article body --}}
+    {{!-- image --}}
   </div>
 </div>
 
