@@ -23,18 +23,26 @@ module.exports = function(app) {
 
     //scrape articles
     app.get("/scrape", function(req, res){
-        axios.get("").then(function(response) {
-            var $ = cheerio.load(response.data);
+        
+    axios.get("https://www.cartoonbrew.com/").then(function(response) {
+        //capturing html into cheerio and saving as variable
+        var $ = cheerio.load(response.data);
 
-            $(".title").each(function(i, element) {
-                var title = $(element).children("a").text();
-                var link = $(element).children("a").attr("href");
+        //an empty array to save data that we'll scrape
+        var results = [];
 
-                if (title && link) {
-                    db.scraped
-                }
-;            });
-        });
+        $("article").each(function(i, element){
+            var title = $(element).find(".entry-summary").children().text();
+            var link = $(element).find("a").attr("href");
+
+            results.push({
+                title: title,
+                link: link
+            });
+    });
+    console.log(results);
+});
+
     });
 
     //routing to saved articles page
@@ -59,6 +67,7 @@ module.exports = function(app) {
     // app.post("/comments/:id", function(req, res){
 
     // });
+
 }
 
 

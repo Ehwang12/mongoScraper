@@ -1,16 +1,16 @@
 {{!-- Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="./index.handlebars">Rock and Ice</a>
+  <a class="navbar-brand">Rock and Ice</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <i class="nav-link fas fa-home" href="#">Home <span class="sr-only">(current)</span></i>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="articles">Saved Articles</a>
+        <i class="nav-link far fa-newspaper" href="#articles">Saved Articles</i>
       </li>
     </ul>
     <button type="button" class="btn btn-success mr-2 my-lg-1 my-sm-3" id="scrape-btn">Collect New Articles</button>
@@ -27,9 +27,9 @@
 </div>
 
 {{!-- articles --}}
-<div class="container container-fluid">
+<div class="container container-fluid my-1">
   <div class="card shadow-sm">
-  <h5 class="card-header">PlaceHolderTitle <button type="button" class="btn btn-success" id="saveArticle">Save Article</button></h5>
+  <h5 class="card-header">PlaceHolderTitle <button type="button" class="btn btn-success float-right" id="clearArticle">Clear Article</button><button type="button" class="btn btn-primary float-right mr-2" id="saveArticle">Save Article</button></h5>
   <div class="card-body">
     <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ea illum deserunt doloremque corporis vero molestias sint dignissimos voluptatum accusamus!</p>
   </div>
@@ -37,7 +37,7 @@
 
 {{!-- footer --}}
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
-  <p class="navbrand text-white text-center mx-auto pt-2">Rock and Ice Mongo Scraper | Esther Hwang 2019</p>
+  <p class="text-white text-center mx-auto pt-2">Rock and Ice Mongo Scraper | Esther Hwang 2019</p>
 </nav>
 
 </div>
