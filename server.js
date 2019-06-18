@@ -1,15 +1,27 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const expbs = require('express-handlebars');
+const expbs = require("express-handlebars");
+const mongoose = require("mongoose");
 
 var PORT = process.env.PORT || 8080;
 
-app.engine('handlebars', expbs({defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+// Sets up the Express app to handle data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+app.engine("handlebars", expbs({defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
+app.use(express.static("public"));
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.connect(MONGODB_URI);
+
 
 //routing
 app.get("/", function(req, res) {
-    res.render("main")
+    res.render("index", {title: "MongoScraper Home"});
 })
 
 app.listen(PORT, function() {
