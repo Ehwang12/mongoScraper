@@ -1,7 +1,8 @@
 var db = require("../models/index");
 const express = require("express");
 const axios = require("axios");
-const mongojs = require("mongojs");
+var mongoose = require("mongoose");
+var mongojs = require("mongojs");
 var cheerio = require("cheerio");
 var path = require("path");
 
@@ -31,33 +32,43 @@ module.exports = function(app) {
             var $ = cheerio.load(response.data);//change
 
             //an empty array to save data that we'll scrape
-            var results = [];
+            
 
                 $("article").each(function(i, element){
-
-                    var title = $(element).find("h2").text();
+                    var results = {};
+                    
+                    var title = $(this).find("h2").text();
                     title = title.split(" ").join(" ").split("\n").join(" ").trim();
 
-                    var link = $(element).find("a").attr("href");
-                    var image = $(element).find("img").attr("src");
-                    var summary = $(element).find(".summary").text();
+                    var link = $(this).find("a").attr("href");
+                    var image = $(this).find("img").attr("src");
+                    var summary = $(this).find(".summary").text();
                     //r&d how to refine search to just class summary
-
+                    
                     results.push({
                         title: title,
                         link: link,
                         image: image,
                         summary: summary
-                    });
-                });
-               console.log(results);
-            })
+                    })
 
+                    db.Article.create(results).then(function(dbArticle){
+                        console.log(dbArticle);
+                    }).catch(function(err){
+                        console.log(err);
+                        
+                    })
+                });
+            //    console.log(results);
+               res.json(results);
+            // res.redirect("/");
+            })
+            
     });
 
     //routing to saved articles page
-    app.get("/articles", function(req, res){
-        console.log(res);
+    app.get("/savedArticles", function(req, res){
+        res.render("articles", {title: "Saved Articles"});
         // res.render("articles", {res, style: "article", title: "Saved Articles"})
         // .then(function(articles){
         //     res.json(articles);

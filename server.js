@@ -23,9 +23,7 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 //connect to mongoDB
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
-// mongoose.connect(MONGODB_URI);
+mongoose.connect("mongodb://localhost/mongoScraper", { useNewUrlParser: true});
 
 //requiring models for syncing
 var db = require("./models");

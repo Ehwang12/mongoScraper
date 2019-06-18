@@ -1,6 +1,6 @@
 {{!-- Navbar --}}
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand">Rock and Ice</a>
+  <a class="navbar-brand text-white">The Climb Times</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -21,8 +21,8 @@
 {{!-- Jumbotron --}}
 <div class="jumbotron jumbotron-fluid shadow">
     <div class="container">
-      <h1 class="display-4 text-white">Rock and Ice Scraper</h1>
-      <p class="lead text-white">Save and comment on your favorite rock and ice articles.</p>
+      <h1 class="display-4 text-white">The Climb Times</h1>
+      <p class="lead text-white">Save and comment on your favorite rock climbing articles from the NY Times.</p>
     </div>
 </div>
 
@@ -30,15 +30,23 @@
 <div class="container container-fluid my-1">
   <div class="card shadow-sm" id="cardHeader">
     {{!-- article title --}}
+    {{#each results}}
+      <a href={{this.link}}><h5 class="card-header">{{this.title}} 
+        <button type="button" class="btn btn-primary float-right" id="saveBtn">Save Article</button>
+      </h5></a>
+    {{/each}}
   <div class="card-body">
     {{!-- article body --}}
+    {{#each results}}
+      <p class="card-text" data-id="">{{this.summary}}</p>
+    {{/each}}
     {{!-- image --}}
   </div>
 </div>
 
 {{!-- footer --}}
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
-  <p class="text-white text-center mx-auto pt-2">Rock and Ice Mongo Scraper | Esther Hwang 2019</p>
+  <p class="text-white text-center mx-auto pt-2">The Climb Times | Esther Hwang 2019</p>
 </nav>
 
 </div>
