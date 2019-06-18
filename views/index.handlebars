@@ -1,5 +1,5 @@
 {{!-- Navbar --}}
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Rock and Ice</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,9 +19,25 @@
 </nav>
     
 {{!-- Jumbotron --}}
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid shadow">
     <div class="container">
-      <h1 class="display-4">Rock and Ice Scraper</h1>
-      <p class="lead">Save and comment on your favorite rock and ice articles.</p>
+      <h1 class="display-4 text-white">Rock and Ice Scraper</h1>
+      <p class="lead text-white">Save and comment on your favorite rock and ice articles.</p>
     </div>
+</div>
+
+{{!-- articles --}}
+<div class="container container-fluid">
+  <div class="card shadow-sm">
+  <h5 class="card-header">PlaceHolderTitle <a href="#" class="btn btn-primary float-right">Save Article</a></h5>
+  <div class="card-body">
+    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa ea illum deserunt doloremque corporis vero molestias sint dignissimos voluptatum accusamus!</p>
+  </div>
+</div>
+
+{{!-- footer --}}
+<nav class="navbar fixed-bottom navbar-dark bg-dark">
+  <p class="navbrand text-white text-center mx-auto pt-2">Rock and Ice Mongo Scraper | Esther Hwang 2019</p>
+</nav>
+
 </div>

@@ -1,3 +1,8 @@
 .jumbotron {
-    background-image: url("/public/adventure-backlit-cool-wallpaper-357891.jpg");
+    background-image: url("/adventure-climb-daylight-673018.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position-x: 1em;
+    background-position-y: -12em; */
+    height: 420px;
 }
