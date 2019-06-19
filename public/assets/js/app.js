@@ -11,11 +11,12 @@ $(document).ready(function() {
 
 // })
 //delete saved article button
-// $("#").on("click", function() {
+// $("#clearOne").on("click", function() {
     //take id of article and send 
 // })
+
 //comment submission button
-// $("#").on("click", function() {
+// $("#cmt-btn").on("click", function() {
     
 // })
 //scrape article button
