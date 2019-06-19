@@ -25,8 +25,8 @@ app.use(express.static("public"));
 
 //connect to mongoDB
 //mLab driver
-//
-mongoose.connect("mongodb://<dbuser>:<dbpassword>@ds139037.mlab.com:39037/heroku_pqlgx1jg", { useNewUrlParser: true});
+//mongodb://<dbuser>:<dbpassword>@ds139037.mlab.com:39037/heroku_pqlgx1jg
+mongoose.connect("mongodb://localhost/mongoScraper", { useNewUrlParser: true});
 
 //database config
 var databaseURL= "mongoScraper";
