@@ -3,7 +3,6 @@ const express = require("express");
 const axios = require("axios");
 var mongojs = require("mongojs");
 var cheerio = require("cheerio");
-var mongoose = require("mongoose");
 const app = express();
 
 module.exports = function(app) {
@@ -17,7 +16,7 @@ module.exports = function(app) {
     console.log("Database Error:", error);
     });
     
-    //Route to homepage
+//Route to homepage
 app.get("/", function(req, res) {
         res.render("index", {style: "style", title: "The Climb Times"});
     });

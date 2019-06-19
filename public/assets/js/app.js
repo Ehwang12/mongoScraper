@@ -21,11 +21,9 @@ $(document).ready(function() {
 //scrape article button
 $(document).on("click", "#scrape-btn", function() {
     console.log("scraping");
-    $.ajax({
-      method:"GET",
-      url: "/scrape"
-    }).then(function(data){
-      console.log(data);
+    
+    $.getJSON("/all", function(results){
+     res.json(results);
     })
 })
 //clear articles button
