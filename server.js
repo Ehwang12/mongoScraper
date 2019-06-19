@@ -96,13 +96,10 @@ app.get("/scrape", function(req, res){
 
 //list all articles
 app.get("/all", function(req, res) {
-    db.Article.find({}, function(err, data){
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(data);
-        };
-    });
+    db.Article.find({}).then(function(data){
+        res.json(data);
+    })
+
 });
 
 //clear articles
