@@ -26,27 +26,28 @@
     </div>
 </div>
 
-{{!-- articles --}}
+
+{{!-- Article --}}
 <div class="container container-fluid my-1">
   <div class="card shadow-sm" id="cardHeader">
-    {{!-- article title --}}
-    {{#each results}}
-      <a href={{this.link}}><h5 class="card-header">{{this.title}} 
-        <button type="button" class="btn btn-primary float-right" id="saveBtn">Save Article</button>
-      </h5></a>
-    {{/each}}
+    <div class="card-header"> 
+      <a class="text-reset font-weight-bold a-resize" href="https://www.nytimes.com/2019/06/18/opinion/pregnant-athlete-sponsor-climber.html?rref=collection%2Ftimestopic%2FRock%20Climbing">
+      I'm a Climber, and a Mother, and Doing Great, Thank You
+      </a>
+      <button type="button" class="btn btn-primary float-right" id="saveBtn">Save Article</button>
+    </div>   
+   {{!-- article body --}}
   <div class="card-body">
-    {{!-- article body --}}
-    {{#each results}}
-      <p class="card-text" data-id={{this._id}}>{{this.summary}}</p>
-    {{/each}}
+
+      <p class="card-text float-left" data-id="">Among many of my peers, being pregnant was seen as a big problem. But not by my sponsors.</p>
+      <img class="img-fluid float-right article-img" src="https://static01.nyt.com/images/2019/06/18/opinion/18rodden/7d4e8462b558492685f3dd6801a83a3d-jumbo.jpg?quality=90&auto=webp">
     {{!-- image --}}
   </div>
+</div>
+
 </div>
 
 {{!-- footer --}}
 <nav class="navbar fixed-bottom navbar-dark bg-dark">
   <p class="text-white text-center mx-auto pt-2">The Climb Times | Esther Hwang 2019</p>
 </nav>
-
-</div>

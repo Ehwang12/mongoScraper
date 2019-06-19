@@ -30,7 +30,7 @@
 <div class="container container-fluid my-1">
   <div class="card shadow-sm" id="cardHeader">
     {{!-- article title --}}
-    {{#each results}}
+    {{#each getAll}}
       <a href={{this.link}}><h5 class="card-header">{{this.title}} 
         <button type="button" class="btn btn-danger float-right" id="saveBtn">Clear Article</button>
         <button type="button" class="btn btn-primary float-right" id="saveBtn">Comment</button>
@@ -38,7 +38,7 @@
     {{/each}}
   <div class="card-body">
     {{!-- article body --}}
-    {{#each results}}
+    {{#each getAll}}
       <p class="card-text" data-id={{this._id}}>{{this.summary}}</p>
       <img src={{this.image}}
     {{/each}}
@@ -46,9 +46,9 @@
   </div>
 </div>
 
+</div>
+
 {{!-- footer --}}
-<nav class="navbar fixed-bottom navbar-dark bg-dark">
+<nav class="navbar position-aboslute navbar-dark bg-dark">
   <p class="text-white text-center mx-auto pt-2">The Climb Times | Esther Hwang 2019</p>
 </nav>
-
-</div>

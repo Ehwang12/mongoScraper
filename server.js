@@ -24,6 +24,8 @@ app.set("view engine", "handlebars");
 app.use(express.static("public"));
 
 //connect to mongoDB
+//mLab driver
+//mongodb://<dbuser>:<dbpassword>@ds139037.mlab.com:39037/heroku_pqlgx1jg
 mongoose.connect("mongodb://localhost/mongoScraper", { useNewUrlParser: true});
 
 //database config
@@ -86,22 +88,45 @@ app.get("/scrape", function(req, res){
                      console.log(err);
             })
            console.log(results);
-           res.json(results);   
+              
            })
         })
     
 });
 
+//list all articles
 app.get("/all", function(req, res) {
     db.Article.find({}, function(err, data){
         if (err) {
             console.log(err);
         } else {
             res.json(data);
-        
         };
     });
 });
+
+//clear articles
+// app.put("/deleteArticle/", function(req, res){
+//     db.Article.remove().then(function(clearAll){
+//         res.json(clearAll)
+//     })
+// })
+
+//clear single article
+// app.put("/deleteArticle/:id", function(req, res) [
+//     db.Article.remove({_id: req.params.id}) 
+//     .then(function(deleteOne) {
+//         res.json(deleteOne);
+//     })    
+// ])
+
+//post note
+// app.post("/comment", function(req, res) {
+
+// })
+
+//clear note
+    //possible app.put route to delete note from MongoDB
 
 
 app.listen(PORT, function() {

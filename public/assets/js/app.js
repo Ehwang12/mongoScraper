@@ -12,7 +12,7 @@ $(document).ready(function() {
 // })
 //delete saved article button
 // $("#").on("click", function() {
-    
+    //take id of article and send 
 // })
 //comment submission button
 // $("#").on("click", function() {
@@ -22,8 +22,13 @@ $(document).ready(function() {
 $(document).on("click", "#scrape-btn", function() {
     console.log("scraping");
     
-    $.getJSON("/all", function(results){
-     res.json(results);
+    $.ajax({
+      method: "GET",
+      URL: "/all"
+    }).then(function(getAll){
+      res.json(getAll);
+    }).catch(function(err){
+      if(err) throw err;
     })
 })
 //clear articles button
