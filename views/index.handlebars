@@ -7,10 +7,10 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <i class="nav-link fas fa-home" href="/">Home <span class="sr-only">(current)</span></i>
+        <a href="/"><i class="nav-link fas fa-home">Home <span class="sr-only">(current)</span></i></a>
       </li>
       <li class="nav-item">
-        <i class="nav-link far fa-newspaper" href="/articles">Saved Articles</i>
+        <a  href="/articles"><i class="nav-link far fa-newspaper">Saved Articles</i></a>
       </li>
     </ul>
     <button type="button" class="btn btn-success mr-2 my-lg-1 my-sm-3" id="scrape-btn">Collect New Articles</button>
@@ -38,7 +38,7 @@
   <div class="card-body">
     {{!-- article body --}}
     {{#each results}}
-      <p class="card-text" data-id="">{{this.summary}}</p>
+      <p class="card-text" data-id={{this._id}}>{{this.summary}}</p>
     {{/each}}
     {{!-- image --}}
   </div>
