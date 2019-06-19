@@ -35,13 +35,43 @@
       I'm a Climber, and a Mother, and Doing Great, Thank You
       </a>
       <button type="button" class="btn btn-danger float-right ml-3" id="clearOne">Clear Article</button>
-      <button type="button" class="btn btn-primary float-right" id="comt-btn">Comment</button>
+      <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#comment-mod" id="comt-btn">Comment</button>
     </div>   
    {{!-- article body --}}
   <div class="card-body">
       <p class="card-text float-left" data-id="">Among many of my peers, being pregnant was seen as a big problem. But not by my sponsors.</p>
       <img class="img-fluid float-right article-img" src="https://static01.nyt.com/images/2019/06/18/opinion/18rodden/7d4e8462b558492685f3dd6801a83a3d-jumbo.jpg?quality=90&auto=webp">
     {{!-- image --}}
+  </div>
+</div>
+
+{{!-- modal --}}
+<div class="modal fade" id="comment-mod" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modal-label">Add a Comment</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="title" class="col-form-label">Title:</label>
+            <input type="text" class="form-control" id="title">
+          </div>
+          <div class="form-group">
+            <label for="article-body" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="article-body"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit Comment</button>
+      </div>
+    </div>
   </div>
 </div>
 
